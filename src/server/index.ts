@@ -6,5 +6,5 @@ import robotsRouter from "../features/robot/router/robotsRouter.js";
 
 app.use(morgan("dev"));
 app.use(express.json());
-app.use("/w10wech", robotsRouter);
+app.use("/killerRobots", robotsRouter);
 app.use("/", pingRouter);
