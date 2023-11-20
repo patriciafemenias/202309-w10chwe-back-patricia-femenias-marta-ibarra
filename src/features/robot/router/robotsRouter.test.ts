@@ -2,17 +2,18 @@ import request from "supertest";
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import { type RobotStructure } from "../types";
-import connectToDatabase from "../../../database";
 import Robot from "../model/Robot";
 import robotsMock from "../../mocks/robotsMock";
 import app from "../../../server/app";
 import "../../../server/index";
+import connectToDatabase from "../../../database";
 
 let server: MongoMemoryServer;
 
 beforeAll(async () => {
   server = await MongoMemoryServer.create();
   const mongoUrl = server.getUri();
+
   await connectToDatabase(mongoUrl);
 });
 
