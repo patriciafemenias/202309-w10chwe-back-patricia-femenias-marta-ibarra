@@ -12,3 +12,9 @@ export type UserCredentialsStructure = Request<
   Record<string, unknown>,
   { username: string; password: string }
 >;
+
+export interface UserWithoutPassword {
+  _id: string;
+  name: string;
+  username: string;
+}

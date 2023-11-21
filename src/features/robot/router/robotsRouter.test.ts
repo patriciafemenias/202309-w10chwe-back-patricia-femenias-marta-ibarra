@@ -27,7 +27,8 @@ describe("Given a GET method with a '/killerRobots' endpoint", () => {
     test("Then it should respond with a status 200 and a list of robots 'Cyborg' and 'Terminator'", async () => {
       const expectedStatusCode = 200;
       const path = "/killerRobots";
-      await Robot.create(robotsMock);
+      await Robot.create(robotsMock[0]);
+      await Robot.create(robotsMock[1]);
 
       const response = await request(app).get(path).expect(expectedStatusCode);
       const responseBody = response.body as { robots: RobotStructure[] };
