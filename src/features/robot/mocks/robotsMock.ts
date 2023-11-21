@@ -1,4 +1,4 @@
-import { type RobotStructure } from "../robot/types";
+import { type RobotStructure } from "../types";
 
 const robotsMock: RobotStructure[] = [
   {

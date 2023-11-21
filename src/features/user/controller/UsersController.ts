@@ -15,7 +15,7 @@ class UsersController {
 
       res.status(200).json({ token });
     } catch (error) {
-      res.status(401).json({ error: (error as Error).message });
+      res.status(401).json({ error: "User not found" });
     }
   };
 }

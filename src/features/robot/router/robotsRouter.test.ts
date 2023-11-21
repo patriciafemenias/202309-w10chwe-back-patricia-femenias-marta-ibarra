@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import { type RobotStructure } from "../types";
 import Robot from "../model/Robot";
-import robotsMock from "../../mocks/robotsMock";
+import robotsMock from "../mocks/robotsMock";
 import app from "../../../server/app";
 import "../../../server/index";
 import connectToDatabase from "../../../database";
