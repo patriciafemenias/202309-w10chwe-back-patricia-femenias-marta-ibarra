@@ -2,17 +2,18 @@ import request from "supertest";
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import { type RobotStructure } from "../types";
-import connectToDatabase from "../../../database";
 import Robot from "../model/Robot";
-import robotsMock from "../../mocks/robotsMock";
+import robotsMock from "../mocks/robotsMock";
 import app from "../../../server/app";
 import "../../../server/index";
+import connectToDatabase from "../../../database";
 
 let server: MongoMemoryServer;
 
 beforeAll(async () => {
   server = await MongoMemoryServer.create();
   const mongoUrl = server.getUri();
+
   await connectToDatabase(mongoUrl);
 });
 
@@ -26,7 +27,8 @@ describe("Given a GET method with a '/killerRobots' endpoint", () => {
     test("Then it should respond with a status 200 and a list of robots 'Cyborg' and 'Terminator'", async () => {
       const expectedStatusCode = 200;
       const path = "/killerRobots";
-      await Robot.create(robotsMock);
+      await Robot.create(robotsMock[0]);
+      await Robot.create(robotsMock[1]);
 
       const response = await request(app).get(path).expect(expectedStatusCode);
       const responseBody = response.body as { robots: RobotStructure[] };

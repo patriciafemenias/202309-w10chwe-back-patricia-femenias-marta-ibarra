@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
 import { type RobotStructure, type RobotsRepository } from "../types";
-import robotsMock from "../../mocks/robotsMock.js";
+import robotsMock from "../mocks/robotsMock.js";
 import RobotsController from "./RobotsController.js";
 
 describe("Given a RobotController getRobots method", () => {
